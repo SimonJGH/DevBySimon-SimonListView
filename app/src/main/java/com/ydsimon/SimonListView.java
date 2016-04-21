@@ -25,7 +25,7 @@ public class SimonListView extends ListView implements OnScrollListener {
     private Scroller mScroller; // 用于回滚
     private OnScrollListener mScrollListener; // 回滚监听
     // 触发刷新和加载更多接口.
-    private IXListViewListener mListViewListener;
+    private SimonListViewListener mListViewListener;
     // -- 头部的View
     private SimonListViewHeader mHeaderView;
     // 查看头部的内容，用它计算头部高度，和隐藏它
@@ -493,7 +493,7 @@ public class SimonListView extends ListView implements OnScrollListener {
         }
     }
 
-    public void setXListViewListener(IXListViewListener l) {
+    public void setXListViewListener(SimonListViewListener l) {
         mListViewListener = l;
     }
 
@@ -507,7 +507,7 @@ public class SimonListView extends ListView implements OnScrollListener {
     /**
      * 实现这个接口来刷新/负载更多的事件
      */
-    public interface IXListViewListener {
+    public interface SimonListViewListener {
         public void onRefresh();
 
         public void onLoadMore();

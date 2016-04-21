@@ -15,7 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements SimonListView.IXListViewListener {
+public class MainActivity extends Activity implements SimonListView.SimonListViewListener {
     private SimonListView mListView;
     private ArrayAdapter<String> adapter;
     private Handler mHandler;
@@ -61,11 +61,11 @@ public class MainActivity extends Activity implements SimonListView.IXListViewLi
                 switch (index) {
                     case 0:
                         // open
-                        Toast.makeText(getApplicationContext(), position + "open", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "DEL" + position, Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
                         // delete
-                        Toast.makeText(getApplicationContext(), position + "delete", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "DEL" + position, Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
