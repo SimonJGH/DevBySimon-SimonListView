@@ -53,6 +53,7 @@ Developed By Simon!
 3>.//设置MenuItem的点击事件监听
 
   mListView.setOnMenuItemClickListener(new SimonListView.OnMenuItemClickListener() {
+  
             @Override
             public void onMenuItemClick(int position, SwipeMenu menu, int index) {
                 switch (index) {
