@@ -1,6 +1,8 @@
 # DevBySimon-SimonListView
 Developed By Simon!
+
 一、如果你只是需要一个简单的下拉刷新上拉加载的功能：
+
 1>.在xml布局中更换控件名为com.ydsimon.SimonListView
 
 2>.在.java中实现SimonListViewListener
