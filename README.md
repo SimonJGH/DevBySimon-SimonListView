@@ -45,10 +45,12 @@ Developed By Simon!
             @Override
             public void onMenuItemClick(int position, SwipeMenu menu, int index) {
                 switch (index) {
+                
                     case 0:
                         // open
                         Toast.makeText(getApplicationContext(), "DEL" + position, Toast.LENGTH_SHORT).show();
                         break;
+                        
                     case 1:
                         // delete
                         Toast.makeText(getApplicationContext(), "DEL" + position, Toast.LENGTH_SHORT).show();
