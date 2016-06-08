@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.animation.BounceInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView.OnItemClickListener;
@@ -29,7 +30,8 @@ public class MainActivity extends Activity implements SimonListView.SimonListVie
         mListView = (SimonListView) findViewById(R.id.techan_xListView);
         getData();
 
-        mListView.setPullLoadEnable(false);
+        mListView.setPullRefreshEnable(true);
+        mListView.setPullLoadEnable(true);
         adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, mList);
         mListView.setAdapter(adapter);
         SwipeMenuCreator creator = new SwipeMenuCreator() {
@@ -60,12 +62,19 @@ public class MainActivity extends Activity implements SimonListView.SimonListVie
             public void onMenuItemClick(int position, SwipeMenu menu, int index) {
                 switch (index) {
                     case 0:
-                        // open
-                        Toast.makeText(getApplicationContext(), "DEL" + position, Toast.LENGTH_SHORT).show();
+                        // delete
+                        Toast.makeText(getApplicationContext(), "DELE" + position, Toast.LENGTH_SHORT).show();
+                        mList.remove(position);
+                        adapter.notifyDataSetChanged();
+                        mListView.setAdapter(adapter);
+
                         break;
                     case 1:
-                        // delete
-                        Toast.makeText(getApplicationContext(), "DEL" + position, Toast.LENGTH_SHORT).show();
+                        // open
+                        Toast.makeText(getApplicationContext(), "OPEN" + position, Toast.LENGTH_SHORT).show();
+                        mList.remove(position);
+                        adapter.notifyDataSetChanged();
+                        mListView.setAdapter(adapter);
                         break;
                 }
             }
@@ -85,7 +94,7 @@ public class MainActivity extends Activity implements SimonListView.SimonListVie
         });
 
         // 其它
-//		listView.setCloseInterpolator(new BounceInterpolator());
+		mListView.setCloseInterpolator(new BounceInterpolator());
 
         mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
@@ -126,7 +135,7 @@ public class MainActivity extends Activity implements SimonListView.SimonListVie
     }
 
     /**
-     * 刷新
+     * 刷新数据
      */
     @Override
     public void onRefresh() {
