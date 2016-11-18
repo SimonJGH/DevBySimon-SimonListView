@@ -93,7 +93,7 @@ Developed By Simon!
 
 
 
-  @因为jcenter()的关系  AS暂不支持compile格式...
+
   
   @为了方便Android开发，推荐大家一个网站：www.ydsimon.net.cn
   
